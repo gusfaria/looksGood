@@ -25,9 +25,6 @@ $(document).ready(function(){
   var canvas = document.querySelector("#vidCanvas");
   var context = canvas.getContext("2d");
   var localMediaStream = null;
-  var _w = video.videoWidth/2;
-  var _h = video.videoHeight/2;
-
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
   if (navigator.getUserMedia) {
@@ -60,14 +57,10 @@ $(document).ready(function(){
 
 
   document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(video, 0, 0, _w/2, _h/2);
-
-    var dataURL = canvas.toDataURL();
-    // set canvasImg image src to dataURL
-    // so it can be saved as an image
-    document.getElementById('canvasImg').src = dataURL
+    var _w = video.videoWidth/2;
+    var _h = video.videoHeight/2;
+    context.drawImage(video, 0, 0, _w, _h);
   });
-
 
 
 });
