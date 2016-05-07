@@ -1,0 +1,30 @@
+.page
+  position: absolute
+  top: 0
+  left: 100%
+  width: 100%
+  height: 100vh
+  background: lightgrey
+  transition: left .5s
+  &.active
+    left: 0
+    z-index: index($layers, activePage)
+
+
+#videoElement, #vidCanvas
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: auto
+  // width: 500px
+  // height: 375px
+  background-color: #666
+
+#vidCanvas
+  top: 495px
+
+#snap
+  position: absolute
+  bottom: 0
+  z-index: 999

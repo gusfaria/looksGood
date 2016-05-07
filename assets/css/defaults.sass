@@ -1,0 +1,144 @@
+/* defaults */
+*
+  margin: 0px
+  padding: 0px
+  border: 0px
+  font-weight: normal
+  text-indent: 0px
+  text-decoration: none
+  font-style: normal
+  outline: none
+  overflow-style: none
+  -ms-overflow-style: none
+  box-sizing: border-box
+
+header, section, footer, aside, nav, article, figure
+  display: block
+
+a:hover, a:active, a:focus
+  outline: 0
+
+.default-scroll_fix_wrap
+  display: block
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+.clear
+  clear: both
+
+//mixins
+@mixin font_family($family, $weight)
+  font-family: $family
+  font-weight: $weight
+
+@mixin z($group, $class)
+  z-index: index($group, $class)
+
+@mixin center()
+  margin: 0px auto
+  text-align: center
+
+@mixin border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  -o-border-radius:      $radius
+  border-radius:         $radius
+
+
+//quicker font size/height
+@mixin font($size,$height)
+  font-size:   $size+px
+  line-height: $height+px
+
+
+@mixin trans($props)
+  transition:         $props
+  -ms-transition:         $props
+  -webkit-transition: $props
+
+@mixin trans-delay($props)
+  transition-delay: $props
+  -webkit-transition-delay: $props
+
+
+@mixin glow($color)
+  box-shadow: 0px 0px 10px $color
+  -webkit-box-shadow: 0px 0px 10px $color
+  -moz-box-shadow: 0px 0px 10px $color
+
+@mixin linearGradient($start, $end, $color1, $color2)
+  background: -webkit-linear-gradient($start, $color1, $color2)
+  background: -moz-linear-gradient($start, $color1, $color2)
+  background: -ms-linear-gradient($start, $color1, $color2)
+  background: -o-linear-gradient($start, $color1, $color2)
+  background: linear-gradient(to $end, $color1, $color2)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color1}', endColorstr='#{$color2}', GradientType=1)
+
+@mixin translateX($percent)
+  -webkit-transform: translateX($percent)
+  -ms-transform: translateX($percent)
+  transform: translateX($percent)
+
+@mixin translateY($percent)
+  -webkit-transform: translateY($percent)
+  -ms-transform: translateY($percent)
+  transform: translateY($percent)
+
+@mixin box-shadow($props)
+  box-shadow: $props
+  -moz-box-shadow: $props
+  -webkit-box-shadow: $props
+  -o-box-shadow: $props
+  -ms-box-shadow: $props
+
+@mixin spread-shadow($x, $y, $blur, $spread, $color)
+  box-shadow: $x $y $blur $spread $color
+  -moz-box-shadow: $x $y $blur $spread $color
+  -webkit-box-shadow: $x $y $blur $spread $color
+  -o-box-shadow: $x $y $blur $spread $color
+  -ms-box-shadow: $x $y $blur $spread $color
+
+@mixin inset-shadow($props)
+  box-shadow: $props
+  -moz-box-shadow: $props
+  -webkit-box-shadow: $props
+  -o-box-shadow: $props
+  -ms-box-shadow: $props
+
+
+@mixin text-shadow($x, $y, $blur, $color)
+  text-shadow: $x $y $blur $color
+  -moz-text-shadow: $x $y $blur $color
+  -webkit-text-shadow: $x $y $blur $color
+  -o-text-shadow: $x $y $blur $color
+  -ms-text-shadow: $x $y $blur $color
+
+@mixin rotate($deg)
+  -ms-transform: rotate(#{$deg}deg)
+  -webkit-transform: rotate(#{$deg}deg)
+  -o-transform: rotate(#{$deg}deg)
+  transform: rotate(#{$deg}deg)
+
+@mixin margins($top_val, $right_val, $bottom_val, $left_val)
+  margin-top: $top_val
+  margin-#{$right}: $right_val
+  margin-bottom: $bottom_val
+  margin-#{$left}: $left_val
+
+@mixin paddings($top_val, $right_val, $bottom_val, $left_val)
+  padding-top: $top_val
+  padding-#{$right}: $right_val
+  padding-bottom: $bottom_val
+  padding-#{$left}: $left_val
+
+// Media Queries by sizes
+@mixin mq($size)
+  @media (max-width: $size)
+    @content
+
+@mixin mqAbove($size)
+  @media (min-width: $size)
+    @content
+    
