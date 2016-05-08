@@ -3,34 +3,127 @@
   <head>
     <meta charset="utf-8">
     <title> Looks Good </title>
-
-    <!-- <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500,400,100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/style.css" media="screen" charset="utf-8">
   </head>
   <body>
+    <header id="mastHead">
+      <div class="globalContainer">
+        <nav class="menu">
+          <span></span><span></span><span></span>
+        </nav>
+        <h1>Looks Good</h1>
+      </div>
+    </header>
     <main class="slider" data-slide=0 >
-      <section class="page active">
-        <h1>page 0</h1>
-        <video autoplay="true" id="videoElement"></video>
-        <canvas id="vidCanvas"></canvas>
-        <button id="snap">Snap Photo</button>
+      <section class="page page__landing active">
+        <div class="mainlogo">
+          <img src="assets/img/logo.png" alt="">
+        </div>
+        <footer class="landing-foot">
+          <a class="round_btn" href="">
+            <span class="round_btn-icon"><img src="assets/img/user.png" alt=""></span>
+          </a>
+          <a class="round_btn round_btn__add next" href="">
+            <span class="round_btn-icon"><img src="assets/img/add.png" alt=""></span>
+          </a>
+          <a class="round_btn" href="">
+            <span class="round_btn-icon"><img src="assets/img/search.png" alt=""></span>
+          </a>
+        </footer>
       </section>
-      <section class="page">
-        <h1>page 1</h1>
+      <section class="page page__capture">
+        <div class="cam_container">
+          <video autoplay="true" id="videoElement"></video>
+          <canvas id="vidCanvas"></canvas>
+          <!-- <div class="cam_overlay"></div> -->
+        </div>
+        <footer class="capture-foot">
+          <a id="snap" class="round_btn round_btn__snap" href=""></a>
+        </footer>
       </section>
-      <section class="page">
-        <h1>page 2</h1>
+      <section class="page page__confirmation">
+        <div class="inner">
+          <div class="globalContainer">
+            <h2 class="callout">Dude, it actually looks good!</h2>
+            <div class="posts post-confirmation">
+              <div class="img-wrap"></div>
+              <div class="img-wrap"></div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <footer class="confirmation-foot">
+          <div class="globalContainer">
+            <a class="anchor-btn anchor-btn__prev cancel" href="">Cancel</a>
+            <a class="anchor-btn anchor-btn__next next" href="">Next</a>
+          </div>
+        </footer>
       </section>
-      <section class="page">
-        <h1>page 3</h1>
+      <section class="page page__form">
+        <div class="inner">
+          <div class="globalContainer">
+            <section class="tag_section">
+              <header><h3 class="form-section-title">Hair Type</h3></header>
+              <div class="tags">
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <footer class="dots">
+                  <a class="dot active" href=""></a>
+                  <a class="dot" href=""></a>
+                  <a class="dot" href=""></a>
+                </footer>
+              </div>
+            </section>
+            <section class="tag_section tag_section__cutStyle">
+              <header><h3 class="form-section-title">Cut Style</h3></header>
+              <div class="tags">
+                <a class="tag " href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <a class="tag" href="">Straight</a>
+                <footer class="dots">
+                  <a class="dot active" href=""></a>
+                  <a class="dot" href=""></a>
+                  <a class="dot" href=""></a>
+                </footer>
+              </div>
+            </section>
+            <section class="tag_section tag_section__venue">
+              <header><h3 class="form-section-title">Barber Shop Info</h3></header>
+              <input class="venue-name" type="text" value="TechCrunch Salon, Brooklyn, NY">
+            </section>
+          </div>
+        </div>
+        <footer class="confirmation-foot">
+          <div class="globalContainer">
+            <a class="anchor-btn anchor-btn__prev cancel" href="">Cancel</a>
+            <a class="anchor-btn anchor-btn__next next" href="">Next</a>
+          </div>
+        </footer>
       </section>
-      <section class="page">
-        <h1>page 4</h1>
+      <section class="page page__feed">
+        <div class="inner">
+          <div class="globalContainer">
+            <div class="posts post-box">
+              <div class="post-box-elem post-box__head"><img src="assets/img/pub-05.png" alt=""></div>
+              <div class="img-wrap img-wrap__post-box"></div>
+              <div class="img-wrap img-wrap__post-box"></div>
+              <div class="clear"></div>
+              <div class="post-box-elem post-box__foot"><img src="assets/img/pub-06.png" alt=""></div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section class="page">
-        <h1>page 5</h1>
-      </section>
-
     </main>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

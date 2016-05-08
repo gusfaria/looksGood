@@ -13,18 +13,32 @@ $(document).ready(function(){
     $('.slider').attr('data-slide', current)
   };
 
-  // $('body').on("click", function(e){
-  //   e.preventDefault();
-  //   slideTo();
-  // });
+  $('body').on("click", ".next", function(e){
+    e.preventDefault();
+    slideTo();
+  });
 
+  $('.tag').on("click", function(e){
+    e.preventDefault();
+    $(this).toggleClass('active');
+  });
 
 
   // ### CAM ### //
   var video = document.getElementById("videoElement");
   var canvas = document.querySelector("#vidCanvas");
-  var context = canvas.getContext("2d");
   var localMediaStream = null;
+  var vid_w = $('#videoElement').width();
+  var vid_h = $('#videoElement').height();
+  $('#canvas').width(vid_w)
+  $('#canvas').height(vid_h)
+  var context = canvas.getContext("2d");
+  var vid_constraints = {
+    mandatory: {
+      maxWidth: 400,
+      maxHeight: 300
+    }
+  }
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
   if (navigator.getUserMedia) {
@@ -38,17 +52,6 @@ $(document).ready(function(){
     console.log("An error occured! " + err);
   }
 
-  function snapshot() {
-    if (localMediaStream) {
-      ctx.drawImage(video, 0, 0);
-      // "image/webp" works in Chrome.
-      // Other browsers will fall back to image/png.
-      document.querySelector('img').src = canvas.toDataURL('image/webp');
-    }
-  }
-
-  video.addEventListener('click', snapshot, false);
-
   // Not showing vendor prefixes or code that works cross-browser.
   navigator.getUserMedia({video: true}, function(stream) {
     video.src = window.URL.createObjectURL(stream);
@@ -56,11 +59,33 @@ $(document).ready(function(){
   }, function(){ console.log('error'); });
 
 
-  document.getElementById("snap").addEventListener("click", function() {
-    var _w = video.videoWidth/2;
-    var _h = video.videoHeight/2;
-    context.drawImage(video, 0, 0, _w, _h);
+  var state = 0
+  document.getElementById("snap").addEventListener("click", function(e) {
+    e.preventDefault();
+    var _w = video.videoWidth;
+    var _h = video.videoHeight;
+    context.drawImage(video, 0, 0, 200, 150);
+    flash();
+    if(state <= 0){
+      $('.img-wrap').eq(0).append(convertCanvasToImage());
+      $('.img-wrap').eq(2).append(convertCanvasToImage());
+      state++;
+    } else {
+      $('.round_btn__snap').addClass('next');
+      $('.img-wrap').eq(1).append(convertCanvasToImage());
+      $('.img-wrap').eq(3).append(convertCanvasToImage());
+    }
   });
+
+  function flash(){
+    $('.cam_container').append("<div class='cam_overlay'>")
+  }
+
+  function convertCanvasToImage() {
+  	var image = new Image();
+  	image.src = canvas.toDataURL("image/png");
+  	return image;
+  }
 
 
 });
