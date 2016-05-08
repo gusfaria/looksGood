@@ -65,10 +65,11 @@ $(document).ready(function(){
     var _w = video.videoWidth;
     var _h = video.videoHeight;
     context.drawImage(video, 0, 0, 200, 150);
-    flash();
     if(state <= 0){
       $('.img-wrap').eq(0).append(convertCanvasToImage());
       $('.img-wrap').eq(2).append(convertCanvasToImage());
+      flash();
+      mask();
       state++;
     } else {
       $('.round_btn__snap').addClass('next');
@@ -78,8 +79,13 @@ $(document).ready(function(){
   });
 
   function flash(){
-    $('.cam_container').append("<div class='cam_overlay'>")
+    $('.cam_container').append("<div class='cam_overlay'>");
   }
+
+  function mask(){
+    $('.mask').addClass("mask__side");
+  }
+
 
   function convertCanvasToImage() {
   	var image = new Image();
